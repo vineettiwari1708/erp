@@ -12,6 +12,7 @@ import Users from "../features/users/Users";
 import SystemDashboard from "../features/system/SystemDashboard";
 import TenantManagement from "../features/system/TenantManagement";
 import CreateCompany from "../features/system/CreateCompany";
+import Logout from "../features/auth/Logout";
 
 function Unauthorized() {
   return createElement("h2", { style: { padding: 20 } }, "Unauthorized");
@@ -53,5 +54,9 @@ export const router = createBrowserRouter([
       { path: "payments", element: createElement(Payments) },
       { path: "users", element: createElement(Users) }
     ]
-  }
+  },
+  {
+  path: "/logout",
+  element: <Logout />,
+},
 ]);
