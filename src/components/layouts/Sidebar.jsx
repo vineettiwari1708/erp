@@ -86,7 +86,7 @@ import { permissions } from "../../assets/mockData/rbac";
 
 /* ================= MENU ================= */
 
-const menu = [
+export const menu = [
   {
     name: "Dashboard",
     path: "/dashboard",
@@ -96,7 +96,7 @@ const menu = [
   {
     name: "Projects",
     path: "/projects",
-    perm: "PROJECT_MANAGE",
+    perm: "PROJECT_VIEW",
   },
 
   {
@@ -129,6 +129,7 @@ const menu = [
     perm: "LEDGER_VIEW",
   },
 
+  // SYSTEM should ONLY be visible if system access exists
   {
     name: "System",
     path: "/system",
@@ -138,38 +139,47 @@ const menu = [
 
 /* ================= SUPER ADMIN ================= */
 
-const superAdminMenu = [
+export const superAdminMenu = [
+  {
+    name: "System Dashboard",
+    path: "/system/dashboard",
+  },
+
   {
     name: "Create Company",
     path: "/system/create-company",
   },
 
   {
-    name: "Project List",
+    name: "Companies",
+    path: "/system/tenants",
+  },
+
+  {
+    name: "Projects",
     path: "/system/projects",
   },
 
   {
-    name: "User List",
+    name: "Users",
     path: "/system/users",
   },
 
   {
-    name: "All Invoices",
+    name: "Invoices",
     path: "/system/invoices",
   },
 
   {
-    name: "All Payments",
+    name: "Payments",
     path: "/system/payments",
   },
 
   {
-    name: "All Clients",
+    name: "Clients",
     path: "/system/clients",
   },
 ];
-
 /* ================= COMPONENT ================= */
 
 export default function Sidebar({
