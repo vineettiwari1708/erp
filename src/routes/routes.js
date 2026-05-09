@@ -55,8 +55,8 @@ export const router = createBrowserRouter([
       { path: "users", element: createElement(Users) }
     ]
   },
-  {
-  path: "/logout",
-  element: <Logout />,
-},
+   {
+    path: "/logout",
+    element: createElement(Logout),
+  },
 ]);

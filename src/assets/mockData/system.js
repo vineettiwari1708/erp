@@ -1,7 +1,7 @@
 export const mockSuperAdmin = {
   id: "sa_001",
   name: "System Owner",
-  email: "system@saas.com",
+  email: "vineet@gmail.com",
   systemRole: "SUPER_ADMIN"
 };
 

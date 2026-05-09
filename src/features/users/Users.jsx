@@ -28,7 +28,214 @@
 
 
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+// import { getUsersApi } from "../../services/api/user.api";
+
+// export default function Users() {
+//   const [users, setUsers] = useState([]);
+//   const [loading, setLoading] =
+//     useState(true);
+
+//   const tenantId = "tnt_001";
+
+//   /* ================= FETCH ================= */
+
+//   const fetchUsers = async () => {
+//     try {
+//       setLoading(true);
+
+//       const res =
+//         await getUsersApi(tenantId);
+
+//       setUsers(res.data || []);
+//     } catch (error) {
+//       console.error(
+//         "Failed to fetch users:",
+//         error
+//       );
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   useEffect(() => {
+//     fetchUsers();
+//   }, []);
+
+//   return (
+//     <section className="space-y-6">
+      
+//       {/* ================= HEADER ================= */}
+
+//       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        
+//         <div>
+//           <h1 className="text-2xl font-semibold text-slate-900">
+//             Users
+//           </h1>
+
+//           <p className="mt-1 text-sm text-slate-500">
+//             Manage all tenant users
+//           </p>
+//         </div>
+
+//         <button className="rounded-lg bg-indigo-600 px-5 py-2 text-sm font-medium text-white transition hover:bg-indigo-700">
+//           + Add User
+//         </button>
+
+//       </div>
+
+//       {/* ================= TABLE ================= */}
+
+//       <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        
+//         <div className="overflow-x-auto">
+          
+//           <table className="min-w-full text-sm">
+            
+//             {/* ================= HEAD ================= */}
+
+//             <thead className="border-b border-slate-200 bg-slate-50">
+//               <tr>
+                
+//                 <th className="px-4 py-3 text-left font-semibold text-slate-500">
+//                   User
+//                 </th>
+
+//                 <th className="px-4 py-3 text-left font-semibold text-slate-500">
+//                   Email
+//                 </th>
+
+//                 <th className="px-4 py-3 text-left font-semibold text-slate-500">
+//                   Role
+//                 </th>
+
+//                 <th className="px-4 py-3 text-left font-semibold text-slate-500">
+//                   Status
+//                 </th>
+
+//                 <th className="px-4 py-3 text-left font-semibold text-slate-500">
+//                   Actions
+//                 </th>
+
+//               </tr>
+//             </thead>
+
+//             {/* ================= BODY ================= */}
+
+//             <tbody>
+//               {loading ? (
+//                 <tr>
+//                   <td
+//                     colSpan="5"
+//                     className="px-4 py-10 text-center text-slate-500"
+//                   >
+//                     Loading users...
+//                   </td>
+//                 </tr>
+//               ) : users.length > 0 ? (
+                
+//                 users.map((u) => (
+//                   <tr
+//                     key={u.id}
+//                     className="border-b border-slate-100 transition hover:bg-slate-50"
+//                   >
+                    
+//                     {/* USER */}
+//                     <td className="px-4 py-4">
+                      
+//                       <div className="flex items-center gap-3">
+                        
+//                         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 font-semibold text-indigo-700">
+//                           {u.name?.charAt(0)}
+//                         </div>
+
+//                         <div>
+//                           <p className="font-medium text-slate-800">
+//                             {u.name}
+//                           </p>
+
+//                           <p className="text-xs text-slate-400">
+//                             ID: {u.id}
+//                           </p>
+//                         </div>
+
+//                       </div>
+
+//                     </td>
+
+//                     {/* EMAIL */}
+//                     <td className="px-4 py-4 text-slate-600">
+//                       {u.email || "N/A"}
+//                     </td>
+
+//                     {/* ROLE */}
+//                     <td className="px-4 py-4">
+                      
+//                       <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+//                         {u.role}
+//                       </span>
+
+//                     </td>
+
+//                     {/* STATUS */}
+//                     <td className="px-4 py-4">
+                      
+//                       <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
+//                         Active
+//                       </span>
+
+//                     </td>
+
+//                     {/* ACTIONS */}
+//                     <td className="px-4 py-4">
+                      
+//                       <div className="flex gap-2">
+                        
+//                         <button className="rounded-lg bg-indigo-50 px-4 py-2 text-xs font-medium text-indigo-600 transition hover:bg-indigo-100">
+//                           Edit
+//                         </button>
+
+//                         <button className="rounded-lg bg-red-50 px-4 py-2 text-xs font-medium text-red-600 transition hover:bg-red-100">
+//                           Delete
+//                         </button>
+
+//                       </div>
+
+//                     </td>
+
+//                   </tr>
+//                 ))
+//               ) : (
+//                 <tr>
+//                   <td
+//                     colSpan="5"
+//                     className="px-4 py-10 text-center text-slate-500"
+//                   >
+//                     No users found
+//                   </td>
+//                 </tr>
+//               )}
+//             </tbody>
+
+//           </table>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
+
+
+
+
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
 import { getUsersApi } from "../../services/api/user.api";
 
 export default function Users() {
@@ -38,7 +245,29 @@ export default function Users() {
 
   const tenantId = "tnt_001";
 
-  /* ================= FETCH ================= */
+  /* ================= PAGINATION ================= */
+
+  const USERS_PER_PAGE = 20;
+
+  const [currentPage, setCurrentPage] =
+    useState(1);
+
+  const totalPages = Math.ceil(
+    users.length / USERS_PER_PAGE
+  );
+
+  const paginatedUsers = useMemo(() => {
+    const start =
+      (currentPage - 1) *
+      USERS_PER_PAGE;
+
+    const end =
+      start + USERS_PER_PAGE;
+
+    return users.slice(start, end);
+  }, [users, currentPage]);
+
+  /* ================= FETCH USERS ================= */
 
   const fetchUsers = async () => {
     try {
@@ -85,141 +314,240 @@ export default function Users() {
 
       </div>
 
-      {/* ================= TABLE ================= */}
+      {/* ================= TABLE WRAPPER ================= */}
 
       <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-        
-        <div className="overflow-x-auto">
-          
-          <table className="min-w-full text-sm">
-            
-            {/* ================= HEAD ================= */}
 
-            <thead className="border-b border-slate-200 bg-slate-50">
-              <tr>
-                
-                <th className="px-4 py-3 text-left font-semibold text-slate-500">
-                  User
-                </th>
+        {/* ================= SCROLLABLE AREA ================= */}
 
-                <th className="px-4 py-3 text-left font-semibold text-slate-500">
-                  Email
-                </th>
+        <div className="max-h-[calc(100vh-220px)] overflow-y-auto">
 
-                <th className="px-4 py-3 text-left font-semibold text-slate-500">
-                  Role
-                </th>
+          <div className="overflow-x-auto">
 
-                <th className="px-4 py-3 text-left font-semibold text-slate-500">
-                  Status
-                </th>
+            <table className="min-w-full text-sm">
+              
+              {/* ================= TABLE HEAD ================= */}
 
-                <th className="px-4 py-3 text-left font-semibold text-slate-500">
-                  Actions
-                </th>
-
-              </tr>
-            </thead>
-
-            {/* ================= BODY ================= */}
-
-            <tbody>
-              {loading ? (
+              <thead className="sticky top-0 z-10 border-b border-slate-200 bg-slate-50">
                 <tr>
-                  <td
-                    colSpan="5"
-                    className="px-4 py-10 text-center text-slate-500"
-                  >
-                    Loading users...
-                  </td>
+                  
+                  <th className="px-4 py-3 text-left font-semibold text-slate-500">
+                    User
+                  </th>
+
+                  <th className="px-4 py-3 text-left font-semibold text-slate-500">
+                    Email
+                  </th>
+
+                  <th className="px-4 py-3 text-left font-semibold text-slate-500">
+                    Role
+                  </th>
+
+                  <th className="px-4 py-3 text-left font-semibold text-slate-500">
+                    Status
+                  </th>
+
+                  <th className="px-4 py-3 text-left font-semibold text-slate-500">
+                    Actions
+                  </th>
+
                 </tr>
-              ) : users.length > 0 ? (
-                
-                users.map((u) => (
-                  <tr
-                    key={u.id}
-                    className="border-b border-slate-100 transition hover:bg-slate-50"
-                  >
-                    
-                    {/* USER */}
-                    <td className="px-4 py-4">
-                      
-                      <div className="flex items-center gap-3">
-                        
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 font-semibold text-indigo-700">
-                          {u.name?.charAt(0)}
-                        </div>
+              </thead>
 
-                        <div>
-                          <p className="font-medium text-slate-800">
-                            {u.name}
-                          </p>
+              {/* ================= TABLE BODY ================= */}
 
-                          <p className="text-xs text-slate-400">
-                            ID: {u.id}
-                          </p>
-                        </div>
-
-                      </div>
-
+              <tbody>
+                {loading ? (
+                  <tr>
+                    <td
+                      colSpan="5"
+                      className="px-4 py-10 text-center text-slate-500"
+                    >
+                      Loading users...
                     </td>
-
-                    {/* EMAIL */}
-                    <td className="px-4 py-4 text-slate-600">
-                      {u.email || "N/A"}
-                    </td>
-
-                    {/* ROLE */}
-                    <td className="px-4 py-4">
-                      
-                      <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                        {u.role}
-                      </span>
-
-                    </td>
-
-                    {/* STATUS */}
-                    <td className="px-4 py-4">
-                      
-                      <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
-                        Active
-                      </span>
-
-                    </td>
-
-                    {/* ACTIONS */}
-                    <td className="px-4 py-4">
-                      
-                      <div className="flex gap-2">
-                        
-                        <button className="rounded-lg bg-indigo-50 px-4 py-2 text-xs font-medium text-indigo-600 transition hover:bg-indigo-100">
-                          Edit
-                        </button>
-
-                        <button className="rounded-lg bg-red-50 px-4 py-2 text-xs font-medium text-red-600 transition hover:bg-red-100">
-                          Delete
-                        </button>
-
-                      </div>
-
-                    </td>
-
                   </tr>
-                ))
-              ) : (
-                <tr>
-                  <td
-                    colSpan="5"
-                    className="px-4 py-10 text-center text-slate-500"
-                  >
-                    No users found
-                  </td>
-                </tr>
-              )}
-            </tbody>
+                ) : users.length > 0 ? (
+                  
+                  paginatedUsers.map((u) => (
+                    <tr
+                      key={u.id}
+                      className="border-b border-slate-100 transition hover:bg-slate-50"
+                    >
+                      
+                      {/* USER */}
+                      <td className="px-4 py-4">
+                        
+                        <div className="flex items-center gap-3">
+                          
+                          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 font-semibold text-indigo-700">
+                            {u.name?.charAt(0)}
+                          </div>
 
-          </table>
+                          <div>
+                            <p className="font-medium text-slate-800">
+                              {u.name}
+                            </p>
+
+                            <p className="text-xs text-slate-400">
+                              ID: {u.id}
+                            </p>
+                          </div>
+
+                        </div>
+
+                      </td>
+
+                      {/* EMAIL */}
+                      <td className="px-4 py-4 text-slate-600">
+                        {u.email || "N/A"}
+                      </td>
+
+                      {/* ROLE */}
+                      <td className="px-4 py-4">
+                        
+                        <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                          {u.role}
+                        </span>
+
+                      </td>
+
+                      {/* STATUS */}
+                      <td className="px-4 py-4">
+                        
+                        <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
+                          Active
+                        </span>
+
+                      </td>
+
+                      {/* ACTIONS */}
+                      <td className="px-4 py-4">
+                        
+                        <div className="flex gap-2">
+                          
+                          <button className="rounded-lg bg-indigo-50 px-4 py-2 text-xs font-medium text-indigo-600 transition hover:bg-indigo-100">
+                            Edit
+                          </button>
+
+                          <button className="rounded-lg bg-red-50 px-4 py-2 text-xs font-medium text-red-600 transition hover:bg-red-100">
+                            Delete
+                          </button>
+
+                        </div>
+
+                      </td>
+
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td
+                      colSpan="5"
+                      className="px-4 py-10 text-center text-slate-500"
+                    >
+                      No users found
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+
+            </table>
+          </div>
         </div>
+
+        {/* ================= PAGINATION ================= */}
+
+        {!loading &&
+          users.length >
+            USERS_PER_PAGE && (
+            <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-200 px-4 py-4 sm:flex-row">
+              
+              {/* INFO */}
+              <p className="text-sm text-slate-500">
+                Showing{" "}
+                <span className="font-medium">
+                  {(currentPage - 1) *
+                    USERS_PER_PAGE +
+                    1}
+                </span>
+                {" "}to{" "}
+                <span className="font-medium">
+                  {Math.min(
+                    currentPage *
+                      USERS_PER_PAGE,
+                    users.length
+                  )}
+                </span>
+                {" "}of{" "}
+                <span className="font-medium">
+                  {users.length}
+                </span>
+                {" "}users
+              </p>
+
+              {/* BUTTONS */}
+              <div className="flex items-center gap-2">
+                
+                <button
+                  onClick={() =>
+                    setCurrentPage(
+                      (prev) =>
+                        prev - 1
+                    )
+                  }
+                  disabled={
+                    currentPage === 1
+                  }
+                  className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Previous
+                </button>
+
+                {Array.from({
+                  length: totalPages,
+                }).map((_, index) => {
+                  const page =
+                    index + 1;
+
+                  return (
+                    <button
+                      key={page}
+                      onClick={() =>
+                        setCurrentPage(
+                          page
+                        )
+                      }
+                      className={`h-10 w-10 rounded-lg text-sm font-medium transition ${
+                        currentPage === page
+                          ? "bg-indigo-600 text-white"
+                          : "border border-slate-200 text-slate-600 hover:bg-slate-100"
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  );
+                })}
+
+                <button
+                  onClick={() =>
+                    setCurrentPage(
+                      (prev) =>
+                        prev + 1
+                    )
+                  }
+                  disabled={
+                    currentPage ===
+                    totalPages
+                  }
+                  className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Next
+                </button>
+
+              </div>
+
+            </div>
+          )}
       </div>
     </section>
   );
