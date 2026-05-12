@@ -22,6 +22,7 @@ import CreateCompany from "../features/system/CreateCompany";
 import TenantDetails from "../features/sytems/TenantDetails";
 import Roles from "../features/Roles/Roles";
 import RolePermissions from "../features/Roles/RolePermissions";
+import Ledger from "../features/ledger/ledger";
 
 
 export const router = createBrowserRouter([
@@ -95,6 +96,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute permission="USER_MANAGE">
             <Users />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: "ledger",
+        element: (
+          <ProtectedRoute permission="LEDGER_VIEW">
+            <Ledger />
           </ProtectedRoute>
         )
       },

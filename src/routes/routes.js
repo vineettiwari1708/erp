@@ -16,6 +16,7 @@ import Logout from "../features/auth/Logout";
 import TenantDetails from "../features/sytems/TenantDetails";
 import Roles from "../features/Roles/Roles";
 import RolePermissions from "../features/Roles/RolePermissions";
+import Ledger from "../features/ledger/ledger";
 
 function Unauthorized() {
   return createElement("h2", { style: { padding: 20 } }, "Unauthorized");
@@ -57,6 +58,7 @@ export const router = createBrowserRouter([
       { path: "invoices", element: createElement(Invoices) },
       { path: "payments", element: createElement(Payments) },
       { path: "users", element: createElement(Users) },
+      { path: "ledger", element: createElement(Ledger)},
       {
         path: "roles",
         element: createElement(ProtectedRoute, {
