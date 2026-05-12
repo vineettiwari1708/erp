@@ -161,8 +161,6 @@
 //   );
 // }
 
-
-
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { permissions } from "../../assets/mockData/rbac";
@@ -179,14 +177,13 @@ export default function RolePermissions() {
       ...new Set(
         Object.values(permissions)
           .flat()
-          .filter((p) => p !== "*")
+          .filter((p) => p !== "*"),
       ),
     ];
   }, []);
 
   return (
     <section className="h-[calc(95vh-80px)] overflow-y-auto space-y-6 pr-2">
-
       {/* ================= HEADER ================= */}
       <div className="rounded-xl bg-gradient-to-r from-indigo-50 to-white border p-5">
         <h1 className="text-2xl font-bold text-slate-900">
@@ -199,12 +196,9 @@ export default function RolePermissions() {
 
       {/* ================= ROLE INFO CARD ================= */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-
         <div className="rounded-xl border bg-white p-4">
           <p className="text-xs text-slate-500">Role</p>
-          <h2 className="text-lg font-semibold text-slate-800">
-            {roleName}
-          </h2>
+          <h2 className="text-lg font-semibold text-slate-800">{roleName}</h2>
         </div>
 
         <div className="rounded-xl border bg-white p-4">
@@ -222,7 +216,6 @@ export default function RolePermissions() {
             ACTIVE
           </span>
         </div>
-
       </div>
 
       {/* ================= PERMISSIONS HEADER ================= */}
@@ -231,31 +224,30 @@ export default function RolePermissions() {
           Permission Matrix
         </h3>
 
-        <button className="px-4 py-2 text-sm bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-          Save Changes
-        </button>
+       
       </div>
 
       {/* ================= PERMISSION GRID ================= */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-
         {allPermissions.map((permission) => {
           const checked =
             rolePermissions.includes("*") ||
             rolePermissions.includes(permission);
-
+          function formatPermission(permission) {
+            return permission.replace(/_/g, " ");
+          }
           return (
             <label
               key={permission}
               className={`flex items-center justify-between gap-3 p-3 rounded-xl border cursor-pointer transition
-                ${checked
-                  ? "bg-indigo-50 border-indigo-300"
-                  : "bg-white hover:bg-slate-50"
+                ${
+                  checked
+                    ? "bg-indigo-50 border-indigo-300"
+                    : "bg-white hover:bg-slate-50"
                 }`}
             >
-
               <span className="text-sm text-slate-700 font-medium">
-                {permission}
+                {formatPermission(permission)}
               </span>
 
               <input
@@ -264,11 +256,9 @@ export default function RolePermissions() {
                 readOnly
                 className="h-4 w-4 accent-indigo-600"
               />
-
             </label>
           );
         })}
-
       </div>
 
       {/* ================= FOOTER ACTION ================= */}
@@ -280,7 +270,6 @@ export default function RolePermissions() {
           Save Permissions
         </button>
       </div>
-
     </section>
   );
 }
