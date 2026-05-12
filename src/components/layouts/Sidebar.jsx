@@ -135,6 +135,11 @@ export const menu = [
     path: "/system",
     perm: "SYSTEM_ACCESS",
   },
+  {
+    name: "Roles",
+    path: "/roles",
+    perm: "ROLE_MANAGE",
+  }
 ];
 
 /* ================= SUPER ADMIN ================= */

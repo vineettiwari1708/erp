@@ -14,6 +14,8 @@ import TenantManagement from "../features/system/TenantManagement";
 import CreateCompany from "../features/system/CreateCompany";
 import Logout from "../features/auth/Logout";
 import TenantDetails from "../features/sytems/TenantDetails";
+import Roles from "../features/Roles/Roles";
+import RolePermissions from "../features/Roles/RolePermissions";
 
 function Unauthorized() {
   return createElement("h2", { style: { padding: 20 } }, "Unauthorized");
@@ -54,7 +56,21 @@ export const router = createBrowserRouter([
       { path: "clients", element: createElement(Clients) },
       { path: "invoices", element: createElement(Invoices) },
       { path: "payments", element: createElement(Payments) },
-      { path: "users", element: createElement(Users) }
+      { path: "users", element: createElement(Users) },
+      {
+        path: "roles",
+        element: createElement(ProtectedRoute, {
+          permission: "ROLE_MANAGE",
+          children: createElement(Roles),
+        }),
+},
+{
+  path: "roles/:id",
+  element: createElement(ProtectedRoute, {
+    permission: "ROLE_MANAGE",
+    children: createElement(RolePermissions),
+  }),
+},
     ]
   },
    {

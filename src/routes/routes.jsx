@@ -20,6 +20,9 @@ import SystemDashboard from "../features/system/SystemDashboard";
 import Tenants from "../features/system/TenantManagement";
 import CreateCompany from "../features/system/CreateCompany";
 import TenantDetails from "../features/sytems/TenantDetails";
+import Roles from "../features/Roles/Roles";
+import RolePermissions from "../features/Roles/RolePermissions";
+
 
 export const router = createBrowserRouter([
   /* AUTH */
@@ -92,6 +95,24 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute permission="USER_MANAGE">
             <Users />
+          </ProtectedRoute>
+        )
+      },
+           {
+        path: "roles",
+        element: (
+          <ProtectedRoute permission="ROLE_MANAGE">
+            <Roles />
+          </ProtectedRoute>
+        )
+      },
+
+      // ✅ ROLE DETAILS
+      {
+        path: "roles/:id",
+        element: (
+          <ProtectedRoute permission="ROLE_MANAGE">
+            <RolePermissions />
           </ProtectedRoute>
         )
       },
