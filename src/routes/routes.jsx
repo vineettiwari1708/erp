@@ -13,7 +13,6 @@ import Clients from "../features/clients/Clients";
 import Invoices from "../features/invoices/Invoices";
 import Payments from "../features/payments/Payments";
 import Users from "../features/users/Users";
-import CreateCompany from "../features/system/CreateCompany";
 
 /* System */
 import SystemDashboard from "../features/system/SystemDashboard";
@@ -44,6 +43,7 @@ export const router = createBrowserRouter([
       { path: "dashboard", element: <SystemDashboard /> },
       { path: "tenants", element: <Tenants /> },
       { path: "tenants/:id",  element: <TenantDetails />},
+      { path: "edit-company/:id", element: <CreateCompany /> }, 
       { path: "create-company", element: <CreateCompany /> }
     ]
   },

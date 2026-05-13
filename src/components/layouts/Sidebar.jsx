@@ -160,30 +160,30 @@ export const superAdminMenu = [
     path: "/system/tenants",
   },
 
-  {
-    name: "Projects",
-    path: "/system/projects",
-  },
+  // {
+  //   name: "Projects",
+  //   path: "/system/projects",
+  // },
 
-  {
-    name: "Users",
-    path: "/system/users",
-  },
+  // {
+  //   name: "Users",
+  //   path: "/system/users",
+  // },
 
-  {
-    name: "Invoices",
-    path: "/system/invoices",
-  },
+  // {
+  //   name: "Invoices",
+  //   path: "/system/invoices",
+  // },
 
-  {
-    name: "Payments",
-    path: "/system/payments",
-  },
+  // {
+  //   name: "Payments",
+  //   path: "/system/payments",
+  // },
 
-  {
-    name: "Clients",
-    path: "/system/clients",
-  },
+  // {
+  //   name: "Clients",
+  //   path: "/system/clients",
+  // },
 ];
 /* ================= COMPONENT ================= */
 

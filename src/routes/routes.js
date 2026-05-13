@@ -40,6 +40,7 @@ export const router = createBrowserRouter([
       { path: "dashboard", element: createElement(SystemDashboard) },
       { path: "tenants", element: createElement(TenantManagement) },
       { path: "create-company", element: createElement(CreateCompany) },
+      { path: "edit-company/:id", element: createElement(CreateCompany) },
       {  path: "tenants/:id",  element: createElement(TenantDetails)}
       
     ]

@@ -143,7 +143,116 @@
 //   );
 // }
 
+// import { useEffect, useState } from "react";
+// import { getTenantsApi } from "../../services/api/tenant.api";
+
+// export default function Tenants() {
+//   const [tenants, setTenants] = useState([]);
+
+//   useEffect(() => {
+//     loadTenants();
+//   }, []);
+
+//   async function loadTenants() {
+//     const res = await getTenantsApi();
+//     setTenants(res.data || []);
+//   }
+
+//   const toggleStatus = (id) => {
+//     setTenants((prev) =>
+//       prev.map((t) =>
+//         t.id === id
+//           ? {
+//               ...t,
+//               status:
+//                 t.status === "ACTIVE"
+//                   ? "INACTIVE"
+//                   : "ACTIVE",
+//             }
+//           : t
+//       )
+//     );
+//   };
+
+//   return (
+//     <section className="h-[calc(95vh-80px)] overflow-y-auto space-y-6 pr-2">
+
+//       {/* HEADER */}
+//       <div>
+//         <h1 className="text-2xl font-semibold text-slate-900">
+//           Companies
+//         </h1>
+//         <p className="text-sm text-slate-500">
+//           Manage tenant status
+//         </p>
+//       </div>
+
+//       {/* TABLE */}
+//       <div className="rounded-xl border border-slate-200 bg-white p-4">
+
+//         <div className="space-y-3">
+
+//           {tenants.map((t) => {
+//             const isActive = t.status === "ACTIVE";
+
+//             return (
+//               <div
+//                 key={t.id}
+//                 className="grid grid-cols-3 items-center rounded-lg bg-slate-50 px-4 py-3"
+//               >
+
+//                 {/* LEFT */}
+//                 <div>
+//                   <h3 className="text-sm font-semibold text-slate-800">
+//                     {t.name}
+//                   </h3>
+//                   <p className="text-xs text-slate-500">
+//                     Plan: {t.plan}
+//                   </p>
+//                 </div>
+
+//                 {/* CENTER (STATUS BADGE) */}
+//                 <div className="flex justify-center">
+//                   <span
+//                     className={`rounded-full px-3 py-1 text-xs font-semibold ${
+//                       isActive
+//                         ? "bg-green-100 text-green-700"
+//                         : "bg-slate-200 text-slate-700"
+//                     }`}
+//                   >
+//                     {isActive ? "Active" : "Inactive"}
+//                   </span>
+//                 </div>
+
+//                 {/* RIGHT (ACTION BUTTON) */}
+//                 <div className="flex justify-end">
+//                   <button
+//                     onClick={() => toggleStatus(t.id)}
+//                     className={`rounded-lg px-4 py-2 text-xs font-medium text-white transition ${
+//                       isActive
+//                         ? "bg-red-500 hover:bg-red-600"
+//                         : "bg-green-600 hover:bg-green-700"
+//                     }`}
+//                   >
+//                     {isActive ? "Disable" : "Enable"}
+//                   </button>
+//                 </div>
+
+//               </div>
+//             );
+//           })}
+
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
+
+
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getTenantsApi } from "../../services/api/tenant.api";
 
 export default function Tenants() {
@@ -198,18 +307,21 @@ export default function Tenants() {
             return (
               <div
                 key={t.id}
-                className="grid grid-cols-3 items-center rounded-lg bg-slate-50 px-4 py-3"
+                className="grid grid-cols-3 items-center rounded-lg bg-slate-50 px-4 py-3 hover:bg-slate-100 transition"
               >
 
-                {/* LEFT */}
-                <div>
-                  <h3 className="text-sm font-semibold text-slate-800">
+                {/* LEFT (NOW CLICKABLE) */}
+                <Link
+                  to={`/system/tenants/${t.id}`}
+                  className="text-left"
+                >
+                  <h3 className="text-sm font-semibold text-slate-800 hover:text-indigo-600">
                     {t.name}
                   </h3>
                   <p className="text-xs text-slate-500">
                     Plan: {t.plan}
                   </p>
-                </div>
+                </Link>
 
                 {/* CENTER (STATUS BADGE) */}
                 <div className="flex justify-center">
@@ -247,3 +359,4 @@ export default function Tenants() {
     </section>
   );
 }
+
