@@ -3,14 +3,24 @@ import Header from "../components/layouts/Header";
 
 export default function SystemLayout({ children }) {
   return (
-    <div style={{ display: "flex" }}>
-      <Sidebar />
+    <div className="flex h-screen overflow-hidden">
+  
+  {/* SIDEBAR */}
+  <Sidebar />
 
-      <div style={{ flex: 1 }}>
-        <Header />
-        <div style={{ padding: 20 }}>{children}</div>
-      </div>
-    </div>
+  {/* MAIN CONTENT */}
+  <div className="flex flex-1 flex-col overflow-hidden">
+    
+    <Header />
+
+    {/* PAGE CONTENT */}
+    <main className="flex-1 overflow-y-auto p-5">
+      {children}
+    </main>
+
+  </div>
+
+</div>
   );
 }
 

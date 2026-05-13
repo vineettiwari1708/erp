@@ -101,9 +101,13 @@ export default function SystemDashboard() {
         </h3>
 
         <div className="space-y-2">
-          {tenants.length > 0 ? (
+          {/* {tenants.length > 0 ? (
             tenants.map((tenant) => {
-              const isActive = tenant.status === "ACTIVE";
+              const isActive = tenant.status === "ACTIVE"; */}
+               {tenants.length > 0 ? (
+    tenants.slice(0, 5).map((tenant) => {
+      const isActive =
+        tenant.status === "ACTIVE";
 
               return (
                 <Link

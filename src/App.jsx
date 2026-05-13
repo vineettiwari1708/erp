@@ -29,19 +29,40 @@ import SystemDashboard from "./features/system/SystemDashboard";
 /* =========================
    MAIN LAYOUT
 ========================= */
+// function Layout({ children }) {
+//   return (
+//     <div style={{ display: "flex" }}>
+//       <Sidebar />
+
+//       <div style={{ flex: 1 }}>
+//         <Header />
+//         <div style={{ padding: 20 }}>{children}</div>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
 function Layout({ children }) {
   return (
-    <div style={{ display: "flex" }}>
+    <div className="flex h-screen overflow-hidden">
+
       <Sidebar />
 
-      <div style={{ flex: 1 }}>
+      <div className="flex flex-1 flex-col overflow-hidden">
+
         <Header />
-        <div style={{ padding: 20 }}>{children}</div>
+
+        <main className="flex-1 overflow-y-auto p-5">
+          {children}
+        </main>
+
       </div>
+
     </div>
   );
 }
-
 /* =========================
    APP
 ========================= */
