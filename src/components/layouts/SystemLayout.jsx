@@ -1,12 +1,19 @@
 import Sidebar from "../components/layouts/Sidebar";
 import Header from "../components/layouts/Header";
 
+
 export default function SystemLayout({ children }) {
+  const [compact, setCompact] = useState(false);
   return (
     <div className="flex h-screen overflow-hidden">
   
   {/* SIDEBAR */}
-  <Sidebar />
+  <Sidebar
+  sidebarOpen={sidebarOpen}
+  setSidebarOpen={setSidebarOpen}
+  compact={compact}
+  setCompact={setCompact}
+/>
 
   {/* MAIN CONTENT */}
   <div className="flex flex-1 flex-col overflow-hidden">
