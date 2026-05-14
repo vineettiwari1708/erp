@@ -26,6 +26,9 @@ export default function Login() {
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-100 to-indigo-100 px-4">
       <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-lg">
         <h1 className="text-2xl font-semibold text-slate-900">Welcome back</h1>
+        <p className="mt-2 text-sm text-slate-500">
+  Early build phase — improvements in progress.
+</p>
         {/* <p className="mt-1 text-sm text-slate-500">Use a email to continue.</p> */}
        <div className="relative group w-fit">
   <p className="mt-1 cursor-pointer text-sm text-slate-500">
