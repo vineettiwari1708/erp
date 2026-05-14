@@ -30,6 +30,21 @@ export const mockInvoices = [
     amount: 45000,
     status: "PAID",
     dueDate: "2026-04-20"
-  }
-  
+  },
+   {
+    id: "inv_006",
+    tenantId: "tnt_001",
+    clientId: "clt_006",
+    amount: 60000,
+    status: "PENDING",
+    dueDate: "2026-05-15"
+  },
+  {
+    id: "inv_007",
+    tenantId: "tnt_001",
+    clientId: "clt_001",
+    amount: 15000,
+    status: "PAID",
+    dueDate: "2026-04-17"
+  },
 ];

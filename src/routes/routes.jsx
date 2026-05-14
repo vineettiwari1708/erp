@@ -22,6 +22,7 @@ import TenantDetails from "../features/sytems/TenantDetails";
 import Roles from "../features/Roles/Roles";
 import RolePermissions from "../features/Roles/RolePermissions";
 import Ledger from "../features/ledger/ledger";
+import CompanyInvoices from "../features/sytems/CompanyInvoices.JSX";
 
 
 export const router = createBrowserRouter([
@@ -44,7 +45,8 @@ export const router = createBrowserRouter([
       { path: "tenants", element: <Tenants /> },
       { path: "tenants/:id",  element: <TenantDetails />},
       { path: "edit-company/:id", element: <CreateCompany /> }, 
-      { path: "create-company", element: <CreateCompany /> }
+      { path: "create-company", element: <CreateCompany /> },
+      { path: "company-invoices/:id", element: <CompanyInvoices /> },
     ]
   },
 
@@ -172,7 +174,8 @@ export const router = createBrowserRouter([
             <Clients />
           </ProtectedRoute>
         )
-      }
+      },
+      
     ]
   }
 ]);

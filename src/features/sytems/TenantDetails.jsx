@@ -376,9 +376,15 @@ export default function TenantDetails() {
             >
               Edit Company
             </Link>
-            <button className="w-full rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-200">
+            {/* <button className="w-full rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-200">
               View Invoices
-            </button>
+            </button> */}
+            <Link
+  to={`/system/company-invoices/${tenant.id}`}
+  className="block w-full rounded-lg bg-slate-100 px-4 py-2 text-center text-sm font-medium text-slate-700 hover:bg-slate-200"
+>
+  View Invoices
+</Link>
 
           </div>
         </div>
