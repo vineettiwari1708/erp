@@ -548,7 +548,7 @@ export default function Sidebar({
 
           {/* ================= TOGGLE ================= */}
 
-          {/* <button
+          <button
             onClick={() =>
               setCompact(!compact)
             }
@@ -559,7 +559,7 @@ export default function Sidebar({
             ) : (
               <ChevronLeft size={20} />
             )}
-          </button> */}
+          </button>
         </div>
       </aside>
     </>
