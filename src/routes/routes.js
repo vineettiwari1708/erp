@@ -17,7 +17,7 @@ import TenantDetails from "../features/sytems/TenantDetails";
 import Roles from "../features/Roles/Roles";
 import RolePermissions from "../features/Roles/RolePermissions";
 import Ledger from "../features/ledger/ledger";
-import CompanyInvoices from "../features/sytems/CompanyInvoices.JSX";
+import CompanyInvoices from "../features/sytems/CompanyInvoices";
 
 function Unauthorized() {
   return createElement("h2", { style: { padding: 20 } }, "Unauthorized");

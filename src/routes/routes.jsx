@@ -22,7 +22,7 @@ import TenantDetails from "../features/sytems/TenantDetails";
 import Roles from "../features/Roles/Roles";
 import RolePermissions from "../features/Roles/RolePermissions";
 import Ledger from "../features/ledger/ledger";
-import CompanyInvoices from "../features/sytems/CompanyInvoices.jsx";
+import CompanyInvoices from "../features/sytems/CompanyInvoices";
 
 
 export const router = createBrowserRouter([
